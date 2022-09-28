@@ -1,0 +1,11 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+{% block title %}New{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам пост, идентификатор которого был передан в url -->
+{% block content %}
+<h1>{{ new }}</h1>
+<h3>{{ time_now|date:'d M Y' }}</h3>
+<h3>{{ new.content }}</h3>
+{% endblock content%}

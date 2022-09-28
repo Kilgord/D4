@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h1>Удаление статьи</h1>
+<hr>
+
+{% if  object.change == "AR"  %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Удаляем "{{ object.title }}"?</p>
+    <input type="submit" value="Delete" />
+</form>
+{% else %}
+<h1>То что вы хотите удалить не является статьей, пост "{{object.title}}" является новостью</h1>
+<a href="{% url 'Delete_New' object.pk %}" > Удалить {{object.title}}
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+{% block content %}
+<h1>Изменение новости</h1>
+<hr>
+
+{% if  object.change == "NW"  %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Сохранить" />
+</form>
+{% else %}
+Вы пытаетесть изменить новость, но данный пост "{{object.title}}" является статьей
+<a href="{% url 'Edit_Article' object.pk %}" > Изменить {{object.title}}
+{% endif %}
+{% endblock content %}
